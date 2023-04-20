@@ -1,0 +1,23 @@
+# Step 1: Generate a vector of 1000 random numbers from a standard normal distribution, set the random seed for reproducibility, and create a histogram of the values
+# Set the random seed to a fixed value for reproducibility
+set.seed(123) 
+
+# Generate a vector of 1000 random numbers from a standard normal distribution
+x1 <- rnorm(1000) 
+
+# Create a histogram of the values in x1 with 50 bins, blue bars, and labels for the main title and x and y axes
+hist(x1, breaks = 50, col = "blue", xlim = c(-4, 4), main = "Combined Histogram", xlab = "Random Numbers") 
+
+# Step 2: Generate a matrix of 1000 rows and 20 columns of random numbers from a standard normal distribution, calculate the mean of each row, create a histogram of the means, and add it to the previous histogram
+
+# Generate a matrix of 1000 rows and 20 columns of random numbers from a standard normal distribution
+x2 <- matrix(rnorm(1000*20), nrow = 1000) 
+
+# Calculate the mean of each row in the matrix
+x2_means <- apply(x2, 1, mean) 
+
+# Create a histogram of the means with 50 bins, red bars, and add it to the previous histogra
+hist(x2_means, breaks = 50, col = "red", add = TRUE) 
+
+# Add a legend to the top right of the plot indicating the colors correspond to the steps taken to create each histogram
+legend("topright", c("Step 1", "Step 2"), fill = c("blue", "red"))
